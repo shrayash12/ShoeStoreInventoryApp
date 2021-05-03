@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="welcomeMessage">
+        Our heartiest
+        welcome goes to you.
+        Congratulations on being
+        part of our shoe store!
+        We’re honoured to have
+        you with us!</string>
+</resources>
