@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -11,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp">
+
         <TextView
             android:id="@+id/tvTitleShoeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:text="Shoename"
             android:textColor="#050505"
             android:textSize="18sp"
@@ -25,17 +27,14 @@
 
         <EditText
             android:id="@+id/etShoeName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="enter shoe name"
+            android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/etCompanyName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvTitleShoeName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
@@ -43,7 +42,7 @@
             android:id="@+id/tvTitleCompanyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:text="CompanyName"
             android:textColor="#090808"
             android:textStyle="normal|bold"
@@ -52,52 +51,47 @@
 
         <EditText
             android:id="@+id/etCompanyName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="enter company name"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/etShoeSize"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvTitleCompanyName"
             app:layout_constraintTop_toBottomOf="@+id/etShoeName" />
 
         <TextView
             android:id="@+id/tvTitleShoeSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:text="Size"
             android:textColor="#0E0D0D"
             android:textSize="18sp"
             android:textStyle="normal|bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etShoeSize"
 
+            app:layout_constraintBaseline_toBaselineOf="@+id/etShoeSize"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/etShoeSize"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="enter shoe size"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/etDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvTitleShoeSize"
+            app:layout_constraintStart_toStartOf="@+id/etShoeName"
             app:layout_constraintTop_toBottomOf="@+id/etCompanyName" />
 
         <TextView
             android:id="@+id/tvTitleShoeDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="Description"
             android:textColor="#0E0D0D"
             android:textSize="18sp"
@@ -107,16 +101,14 @@
 
         <EditText
             android:id="@+id/etDescription"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="enter shoe size"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvDescriptionTitle"
+            app:layout_constraintStart_toStartOf="@+id/etShoeName"
             app:layout_constraintTop_toBottomOf="@+id/etShoeSize" />
 
         <Button
@@ -138,6 +130,22 @@
             android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="tvTitleShoeName,tvTitleCompanyName,tvTitleShoeSize,tvTitleShoeDescription"
+            tools:layout_editor_absoluteX="411dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="etShoeSize,etDescription,etShoeName,etCompanyName"
+            tools:layout_editor_absoluteX="66dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
