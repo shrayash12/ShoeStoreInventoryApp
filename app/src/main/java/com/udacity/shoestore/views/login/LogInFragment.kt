@@ -44,7 +44,7 @@ class LogInFragment : Fragment(R.layout.loginfragment) {
             // Navigate to welcome screen
             Navigation.findNavController(it).navigate(R.id.action_logInFragment_to_welcomeFragment)
         }
-        (activity as AppCompatActivity).supportActionBar?.title = "Log In"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.log_in)
 
     }
 

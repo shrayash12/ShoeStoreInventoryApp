@@ -6,8 +6,6 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
     val shoesList = MutableLiveData<ArrayList<Shoe>>()
-
-
     fun initialiseData() {
         val shoeBata = Shoe(
             "abc",
@@ -46,6 +44,4 @@ class ShoeListViewModel : ViewModel() {
     fun addNewShoes(shoe: Shoe) {
         shoesList.value?.add(shoe)
     }
-
-
 }

@@ -8,5 +8,10 @@
     <string name="firstInstruction">Tab + button to add new shoe item to the shoe list</string>
     <string name="secInstruction">Tab save button to save shoe item</string>
     <string name="thirdInstruction">Tab logout button to come back to login screen</string>
+    <string name="instruction_screen">Instruction Screen</string>
+    <string name="log_in">Log In</string>
+    <string name="welcome_screen">Welcome Screen</string>
+    <string name="shoe_list">Shoe List</string>
+    <string name="shoe_details">Shoe Details</string>
 
 </resources>

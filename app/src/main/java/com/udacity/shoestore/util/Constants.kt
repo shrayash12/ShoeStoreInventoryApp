@@ -8,7 +8,4 @@ object Constants {
     const val KEY_COMPANY_NAME=  "company"
     const val KEY_SHOE_SIZE=  "shoesSize"
     const val KEY_SHOE_DESCRIPTION=  "shoeDescription"
-
-
-
 }

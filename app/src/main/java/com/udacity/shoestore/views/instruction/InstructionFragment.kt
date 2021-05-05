@@ -15,7 +15,6 @@ class InstructionFragment : Fragment(R.layout.instructionsfragment) {
         buttonShoeStore.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_instructionFragment_to_shoeListingFragment)
         }
-        (activity as AppCompatActivity).supportActionBar?.title = "Instruction Screen"
-
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.instruction_screen)
     }
 }
