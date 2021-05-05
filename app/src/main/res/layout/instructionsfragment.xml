@@ -3,17 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp">
 
     <ImageView
         android:id="@+id/imageViewShoeCircle"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="50dp"
+        android:paddingTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shoecircle" />
+        app:srcCompat="@drawable/shoeee" />
 
 
     <TextView
@@ -43,6 +45,19 @@
         app:layout_constraintTop_toBottomOf="@+id/tvInstru1" />
 
 
+    <TextView
+        android:id="@+id/tvInstru3"
+        style="@style/InstructionScreenText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/thirdInstruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInstru2" />
+
     <Button
         android:id="@+id/buttonShoeStore"
         android:layout_width="0dp"
@@ -56,5 +71,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInstru2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvInstru3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

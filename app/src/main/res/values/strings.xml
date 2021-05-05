@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">ShoeStore</string>
-    <string name="welcomeMessage">
-        Our heartiest
-        welcome goes to you.
-        Congratulations on being
-        part of our shoe store!
-        We’re honoured to have
-        you with us!</string>
+    <string name="logout">LogOut</string>
+    <string name="shoeName">Shoename</string>
+    <string name="companyName">Companyname</string>
+    <string name="minimal_and_light_for_use_anywhere">Minimal and light for use anywhere</string>
+    <string name="size">Size</string>
+    <string name="firstInstruction">Tab + button to add new shoe item to the shoe list</string>
+    <string name="secInstruction">Tab save button to save shoe item</string>
+    <string name="thirdInstruction">Tab logout button to come back to login screen</string>
+
 </resources>

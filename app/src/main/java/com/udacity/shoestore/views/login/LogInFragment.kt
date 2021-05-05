@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
@@ -43,6 +44,8 @@ class LogInFragment : Fragment(R.layout.loginfragment) {
             // Navigate to welcome screen
             Navigation.findNavController(it).navigate(R.id.action_logInFragment_to_welcomeFragment)
         }
+        (activity as AppCompatActivity).supportActionBar?.title = "Log In"
+
     }
 
 }

@@ -10,6 +10,9 @@
         <action
             android:id="@+id/action_logInFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_shoeListingFragment"
+            app:destination="@id/shoeListingFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -34,6 +37,9 @@
         <action
             android:id="@+id/action_shoeListingFragment_to_shoeDetails"
             app:destination="@id/shoeDetails" />
+        <action
+            android:id="@+id/action_shoeListingFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetails"

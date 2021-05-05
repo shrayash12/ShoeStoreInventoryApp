@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcomeTitle"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/shoeslottie" />
+        app:lottie_rawRes="@raw/lottieshoe" />
 
     <TextView
         android:id="@+id/tv_welcome"

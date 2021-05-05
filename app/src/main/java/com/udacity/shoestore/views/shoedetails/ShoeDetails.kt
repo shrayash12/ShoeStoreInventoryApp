@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigator
 import com.udacity.shoestore.R
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.util.Constants
 import com.udacity.shoestore.views.shoelisting.ShoeListViewModel
 
 class ShoeDetails : Fragment(R.layout.shoedetailsfragment) {
@@ -37,15 +39,17 @@ class ShoeDetails : Fragment(R.layout.shoedetailsfragment) {
             val shoeDescription = etDescription.text.toString()
 
             val bundle = bundleOf(
-                "shoeName" to shoeName,
-                "company" to companyName,
-                "shoesSize" to shoeSize,
-                "shoeDescription to" to shoeDescription
+                Constants.KEY_SHOE_NAME to shoeName,
+                Constants.KEY_COMPANY_NAME to companyName,
+                Constants.KEY_SHOE_SIZE to shoeSize,
+                Constants.KEY_SHOE_DESCRIPTION to shoeDescription
             )
             Navigation.findNavController(it)
                 .navigate(R.id.action_shoeDetails_to_shoeListingFragment, bundle)
 
         }
+        (activity as AppCompatActivity).supportActionBar?.title = "Shoe Details"
+
 
     }
 }

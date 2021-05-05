@@ -8,7 +8,7 @@ class ShoeListViewModel : ViewModel() {
     val shoesList = MutableLiveData<ArrayList<Shoe>>()
 
 
-    fun initiaseData() {
+    fun initialiseData() {
         val shoeBata = Shoe(
             "abc",
             2.0, "bata",
@@ -29,8 +29,20 @@ class ShoeListViewModel : ViewModel() {
             5.0, "Adidas",
             "", emptyList()
         )
-        shoesList.value = arrayListOf(shoeBata,shoeNewBalance, shoeNike,shoeAdidas)
+        val shoePuma = Shoe(
+            "Loafer",
+            5.5, "Puma",
+            "Comfortable", emptyList()
+        )
+        val shoeAldo = Shoe(
+            "Loafer",
+            4.5, "Aldo",
+            "Stylish", emptyList()
+        )
+        shoesList.value =
+            arrayListOf(shoeBata, shoeNewBalance, shoeNike, shoeAdidas, shoePuma, shoeAldo)
     }
+
     fun addNewShoes(shoe: Shoe) {
         shoesList.value?.add(shoe)
     }

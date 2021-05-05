@@ -19,9 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Shoename"
-            android:textColor="#050505"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            style="@style/TextStyle"
             app:layout_constraintBaseline_toBaselineOf="@+id/etShoeName"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,8 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="CompanyName"
-            android:textColor="#090808"
-            android:textStyle="normal|bold"
+            style="@style/TextStyle"
             app:layout_constraintBaseline_toBaselineOf="@+id/etCompanyName"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -67,10 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Size"
-            android:textColor="#0E0D0D"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
-
+            style="@style/TextStyle"
             app:layout_constraintBaseline_toBaselineOf="@+id/etShoeSize"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -93,9 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Description"
-            android:textColor="#0E0D0D"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
+            style="@style/TextStyle"
             app:layout_constraintBaseline_toBaselineOf="@+id/etDescription"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -118,6 +110,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:text="Cancel"
+            style="@style/ButtonStyle"
+            android:background="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -128,6 +122,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="Save"
+            style="@style/ButtonStyle"
+            android:background="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

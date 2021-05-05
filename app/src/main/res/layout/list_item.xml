@@ -6,17 +6,16 @@
 
     <ImageView
         android:id="@+id/shoeImage"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvShoeName"
-        app:srcCompat="@drawable/adidasshoe" />
+        app:srcCompat="@drawable/shoeee" />
 
     <TextView
         android:id="@+id/tvShoeName"

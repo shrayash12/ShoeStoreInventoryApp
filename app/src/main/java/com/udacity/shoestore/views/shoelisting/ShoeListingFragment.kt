@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.util.Constants
 import com.udacity.shoestore.util.UserManager
 import android.widget.LinearLayout as LinearLayout1
 
@@ -37,10 +39,10 @@ class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
 
 
         val shoe = arguments?.let {
-            val name = it.getString("shoeName")
-            val companyName = it.getString("company")
-            val shoeSize = it.getDouble("shoesSize")
-            val description = it.getString("shoeDescription")
+            val name = it.getString(Constants.KEY_SHOE_NAME)
+            val companyName = it.getString(Constants.KEY_COMPANY_NAME)
+            val shoeSize = it.getDouble(Constants.KEY_SHOE_SIZE)
+            val description = it.getString(Constants.KEY_SHOE_DESCRIPTION)
             Shoe(name ?: "", shoeSize, companyName ?: "", description ?: "")
         }
 
@@ -68,6 +70,8 @@ class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
                 linearLayout.addView(view)
             }
         })
+        (activity as AppCompatActivity).supportActionBar?.title = "Shoe List"
+
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
        inflater.inflate(R.menu.shoe_menu, menu)
@@ -87,7 +91,7 @@ class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        shoeListViewModel.initiaseData()
+        shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
+        shoeListViewModel.initialiseData()
     }
 }
