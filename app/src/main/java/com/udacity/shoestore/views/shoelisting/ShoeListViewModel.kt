@@ -1,28 +1,39 @@
 package com.udacity.shoestore.views.shoelisting
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
-    val shoesList = MutableLiveData<List<Shoe>>()
+    val shoesList = MutableLiveData<ArrayList<Shoe>>()
 
-    init {
+
+    fun initiaseData() {
         val shoeBata = Shoe(
-           "abc",
-           2.0, "bata",
-           "", emptyList()
+            "abc",
+            2.0, "bata",
+            "", emptyList()
+        )
+        val shoeNewBalance = Shoe(
+            "NB",
+            2.5, "NewBalance",
+            "", emptyList()
         )
         val shoeNike = Shoe(
-           "abc",
-           2.0, "Nike",
-           "", emptyList()
+            "abc",
+            5.0, "Nike",
+            "", emptyList()
         )
-        shoesList.value = listOf(shoeBata, shoeNike)
+        val shoeAdidas = Shoe(
+            "Sneaker",
+            5.0, "Adidas",
+            "", emptyList()
+        )
+        shoesList.value = arrayListOf(shoeBata,shoeNewBalance, shoeNike,shoeAdidas)
+    }
+    fun addNewShoes(shoe: Shoe) {
+        shoesList.value?.add(shoe)
     }
 
-   fun addNewShoes(shoe: Shoe) {
-      shoesList.value = listOf(shoe)
-   }
+
 }
