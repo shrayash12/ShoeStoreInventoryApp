@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/shoeImage"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
@@ -17,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvShoeName"
-        app:srcCompat="@drawable/nikeshoe" />
+        app:srcCompat="@drawable/adidasshoe" />
 
     <TextView
         android:id="@+id/tvShoeName"
@@ -25,10 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
-        android:text="SHOENAME"
-        android:textColor="#050505"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:text="@string/shoeName"
+        style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shoeImage" />
 
@@ -37,10 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:text="CompanyName"
-        android:textColor="#050505"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:text="@string/companyName"
+        style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShoeName" />
 
@@ -52,35 +47,20 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="32dp"
-        android:text="Size"
-        android:textColor="#0E0D0D"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
+        android:text="@string/size"
+        style="@style/TextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shoeImage" />
 
-    <!--<TextView
-        android:id="@+id/tvDescriptionTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="About"
-        android:textColor="#090808"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />-->
 
     <TextView
         android:id="@+id/tvShoeDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:text="Minimal and light for use anywhere"
+        android:text="@string/minimal_and_light_for_use_anywhere"
         android:lineSpacingMultiplier="1.2"
-        android:textColor="#0E0D0D"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
+        style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
 
