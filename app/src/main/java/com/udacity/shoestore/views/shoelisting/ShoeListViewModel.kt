@@ -9,23 +9,23 @@ class ShoeListViewModel : ViewModel() {
     fun initialiseData() {
         val shoeBata = Shoe(
             "abc",
-            2.0, "bata",
-            "", emptyList()
+            2.0, "Bata",
+            "Affordable and Good", emptyList()
         )
         val shoeNewBalance = Shoe(
             "NB",
             2.5, "NewBalance",
-            "", emptyList()
+            "Nice Color and Comfortable", emptyList()
         )
         val shoeNike = Shoe(
-            "abc",
+            "Nike",
             5.0, "Nike",
-            "", emptyList()
+            "Best shoes for running", emptyList()
         )
         val shoeAdidas = Shoe(
             "Sneaker",
             5.0, "Adidas",
-            "", emptyList()
+            "Daily wear Sneaker", emptyList()
         )
         val shoePuma = Shoe(
             "Loafer",
