@@ -9,9 +9,14 @@
     <string name="secInstruction">Tab save button to save shoe item</string>
     <string name="thirdInstruction">Tab logout button to come back to login screen</string>
     <string name="instruction_screen">Instruction Screen</string>
-    <string name="log_in">Log In</string>
     <string name="welcome_screen">Welcome Screen</string>
     <string name="shoe_list">Shoe List</string>
     <string name="shoe_details">Shoe Details</string>
+    <string name="shoeDetail">ShoeDetail</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">forgot password</string>
+    <string name="password">Password</string>
+    <string name="enter_email">Enter email</string>
+    <string name="email">Email</string>
 
 </resources>

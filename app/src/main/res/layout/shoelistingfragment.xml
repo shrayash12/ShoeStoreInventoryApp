@@ -10,15 +10,28 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
-    <RelativeLayout
+    <!--
+       Using constrain layout to have flat hierarchy to improve
+      ui rendering performance
+    -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:id="@+id/scrollViewParent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="40dp">
+            android:layout_marginBottom="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--
+            Here LinearLayout used to add shoe list item dynamically to view.
+            We can use RecyclerView here but as in the course we haven't completed topic of
+            RecyclerView that's why i use LinearLayout
+            -->
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -32,12 +45,13 @@
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollViewParent"
             app:srcCompat="@android:drawable/ic_input_add"
             tools:ignore="MissingConstraints" />
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

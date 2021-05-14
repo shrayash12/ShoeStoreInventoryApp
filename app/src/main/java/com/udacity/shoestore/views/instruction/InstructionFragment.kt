@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.InstructionsfragmentBinding
 import com.udacity.shoestore.databinding.WelcomefragmentBinding
+import com.udacity.shoestore.util.UserManager
 
 class InstructionFragment : Fragment() {
     override fun onCreateView(
@@ -19,15 +20,15 @@ class InstructionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        UserManager.setOnBoardingCompleted(true, requireContext())
         val binding: InstructionsfragmentBinding =
             DataBindingUtil.inflate(inflater, R.layout.instructionsfragment, container, false)
         binding.buttonShoeStore.setOnClickListener { view: View ->
             Navigation.findNavController(view)
                 .navigate(R.id.action_instructionFragment_to_shoeListingFragment)
         }
-        return binding.root
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.instruction_screen)
-
+        return binding.root
     }
 }

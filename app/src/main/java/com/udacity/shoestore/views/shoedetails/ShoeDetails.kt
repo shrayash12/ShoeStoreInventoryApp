@@ -30,7 +30,7 @@ class ShoeDetails : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_shoeDetails_to_shoeListingFragment)
         }
-       binding.buttonSave.setOnClickListener { view: View ->
+        binding.buttonSave.setOnClickListener { view: View ->
             val shoeName = etShoeName.text.toString()
             val companyName = etCompanyName.text.toString()
             val shoeSize = etShoeSize.text.toString()
@@ -45,7 +45,8 @@ class ShoeDetails : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_shoeDetails_to_shoeListingFragment, bundle)
         }
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.shoeDetail)
         return binding.root
-
     }
+
 }

@@ -66,7 +66,7 @@ class ShoeListingFragment : Fragment() {
     ) {
         it.forEach {
             val view =
-                LayoutInflater.from(requireContext())
+                LayoutInflater.from(requireActivity())
                     .inflate(R.layout.list_item, scrollView, false)
             val imageView = view.findViewById<ImageView>(R.id.shoeImage)
             val shoeName = view.findViewById<TextView>(R.id.tvShoeName)
