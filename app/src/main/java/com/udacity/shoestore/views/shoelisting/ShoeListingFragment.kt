@@ -7,29 +7,31 @@ import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.LoginfragmentBinding
+import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.util.Constants
 import com.udacity.shoestore.util.UserManager
+import kotlinx.android.synthetic.main.shoelistingfragment.*
 import android.widget.LinearLayout as LinearLayout1
 
-class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
-    lateinit var shoeListViewModel: ShoeListViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
+class ShoeListingFragment : Fragment() {
+    private var root: View? = null
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val buttonAdd = view.findViewById<FloatingActionButton>(R.id.buttonAdd)
-        val linearLayout = view.findViewById<LinearLayout1>(R.id.linearLayout)
-        val scrollView = view.findViewById<ScrollView>(R.id.scrollViewParent)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding: ShoelistingfragmentBinding =
+            DataBindingUtil.inflate(inflater, R.layout.shoelistingfragment, container, false)
         val shoe = arguments?.let {
             val name = it.getString(Constants.KEY_SHOE_NAME)
             val companyName = it.getString(Constants.KEY_COMPANY_NAME)
@@ -40,15 +42,21 @@ class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
         if (shoe != null) {
             shoeListViewModel.addNewShoes(shoe)
         }
-        buttonAdd.setOnClickListener {
-            Navigation.findNavController(it)
+        binding.buttonAdd.setOnClickListener { view: View ->
+            Navigation.findNavController(view)
                 .navigate(R.id.action_shoeListingFragment_to_shoeDetails)
         }
         shoeListViewModel.shoesList.observe(requireActivity(), Observer {
-            createListView(it, scrollView, linearLayout)
+            createListView(it, binding.scrollViewParent, binding.linearLayout)
         })
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.shoe_list)
+        return binding.root
+    }
 
+    lateinit var shoeListViewModel: ShoeListViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     private fun createListView(
@@ -63,8 +71,12 @@ class ShoeListingFragment : Fragment(R.layout.shoelistingfragment) {
             val imageView = view.findViewById<ImageView>(R.id.shoeImage)
             val shoeName = view.findViewById<TextView>(R.id.tvShoeName)
             val companyName = view.findViewById<TextView>(R.id.tvCompanyName)
+            val shoeSize = view.findViewById<TextView>(R.id.tvShoeSize)
+            val shoeDescriptions = view.findViewById<TextView>(R.id.tvShoeDescription)
             shoeName.text = it.name
             companyName.text = it.company
+            shoeSize.text = it.size.toString()
+            shoeDescriptions.text = it.description
             linearLayout.addView(view)
         }
     }
