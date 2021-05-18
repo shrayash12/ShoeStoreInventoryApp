@@ -18,5 +18,16 @@
     <string name="password">Password</string>
     <string name="enter_email">Enter email</string>
     <string name="email">Email</string>
+    <string name="go">Go</string>
+    <string name="add_new_shoes">add new shoes</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="description">Description</string>
+    <string name="enter_shoe_size">Enter shoe size</string>
+    <string name="enter_company_name">Enter company name</string>
+    <string name="company_name">Company Name</string>
+    <string name="enter_shoe_name">Enter shoe name</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="shoe_store">Shoe Store</string>
 
 </resources>

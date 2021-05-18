@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
@@ -14,11 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoedetailsfragmentBinding
-import com.udacity.shoestore.databinding.ShoedetailsfragmentBindingImpl
-import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.util.Constants
-import kotlinx.android.synthetic.main.shoedetailsfragment.*
 
 class ShoeDetails : Fragment() {
     override fun onCreateView(

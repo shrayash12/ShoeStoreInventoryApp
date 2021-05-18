@@ -51,7 +51,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollViewParent"
             app:srcCompat="@android:drawable/ic_input_add"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/add_new_shoes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

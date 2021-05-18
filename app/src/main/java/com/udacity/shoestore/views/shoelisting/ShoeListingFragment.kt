@@ -3,9 +3,7 @@ package com.udacity.shoestore.views.shoelisting
 import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
@@ -13,25 +11,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListItemBinding
-import com.udacity.shoestore.databinding.LoginfragmentBinding
 import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.util.Constants
 import com.udacity.shoestore.util.UserManager
-import kotlinx.android.synthetic.main.shoelistingfragment.*
-import android.widget.LinearLayout as LinearLayout1
 
 class ShoeListingFragment : Fragment() {
-    private var root: View? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: ShoelistingfragmentBinding =
             DataBindingUtil.inflate(inflater, R.layout.shoelistingfragment, container, false)
         val shoe = arguments?.let {

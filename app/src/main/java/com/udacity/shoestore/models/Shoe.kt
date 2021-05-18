@@ -6,5 +6,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Shoe(
-    var name: ObservableField<String>, var size: ObservableField<String>, var company: ObservableField<String>, var description: ObservableField<String>,
-    val images: List<String> = mutableListOf()) : Parcelable
+    var name: ObservableField<String>,
+    var size: ObservableField<String>,
+    var company: ObservableField<String>,
+    var description: ObservableField<String>,
+    val images: List<String> = mutableListOf()
+) : Parcelable

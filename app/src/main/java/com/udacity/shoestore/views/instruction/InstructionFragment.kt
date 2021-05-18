@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.InstructionsfragmentBinding
-import com.udacity.shoestore.databinding.WelcomefragmentBinding
 import com.udacity.shoestore.util.UserManager
 
 class InstructionFragment : Fragment() {
@@ -19,7 +17,8 @@ class InstructionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        // On boarding is completed. Show only for first time after login
         UserManager.setOnBoardingCompleted(true, requireContext())
         val binding: InstructionsfragmentBinding =
             DataBindingUtil.inflate(inflater, R.layout.instructionsfragment, container, false)

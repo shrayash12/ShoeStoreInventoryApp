@@ -35,7 +35,6 @@ object UserManager {
         return sharePref.getBoolean(Constants.KEY_IS_ON_BOARDING_DONE, false)
     }
 
-
     fun logOut(context: Context) {
         val sharePref =
             context.getSharedPreferences(Constants.KEY_MY_SHARE_PREF, Context.MODE_PRIVATE)
