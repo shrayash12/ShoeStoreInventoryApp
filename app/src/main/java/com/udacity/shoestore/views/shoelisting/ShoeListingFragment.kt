@@ -8,12 +8,14 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.ListItemBinding
 import com.udacity.shoestore.databinding.LoginfragmentBinding
 import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
 import com.udacity.shoestore.models.Shoe
@@ -35,9 +37,14 @@ class ShoeListingFragment : Fragment() {
         val shoe = arguments?.let {
             val name = it.getString(Constants.KEY_SHOE_NAME)
             val companyName = it.getString(Constants.KEY_COMPANY_NAME)
-            val shoeSize = it.getDouble(Constants.KEY_SHOE_SIZE)
+            val shoeSize = it.getString(Constants.KEY_SHOE_SIZE)
             val description = it.getString(Constants.KEY_SHOE_DESCRIPTION)
-            Shoe(name ?: "", shoeSize, companyName ?: "", description ?: "")
+            Shoe(
+                ObservableField(name ?: ""),
+                ObservableField(shoeSize ?: ""),
+                ObservableField(companyName ?: ""),
+                ObservableField(description ?: "")
+            )
         }
         if (shoe != null) {
             shoeListViewModel.addNewShoes(shoe)
@@ -59,25 +66,24 @@ class ShoeListingFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
+    /*
+    * Here we are dynamically creating view and adding it to LinearLayout i.e container
+    * We could have use BindingAdapter but i need to get layoutInflater in BindingAdapter
+    * */
     private fun createListView(
         it: ArrayList<Shoe>,
         scrollView: ScrollView?,
         linearLayout: android.widget.LinearLayout
     ) {
-        it.forEach {
-            val view =
-                LayoutInflater.from(requireActivity())
-                    .inflate(R.layout.list_item, scrollView, false)
-            val imageView = view.findViewById<ImageView>(R.id.shoeImage)
-            val shoeName = view.findViewById<TextView>(R.id.tvShoeName)
-            val companyName = view.findViewById<TextView>(R.id.tvCompanyName)
-            val shoeSize = view.findViewById<TextView>(R.id.tvShoeSize)
-            val shoeDescriptions = view.findViewById<TextView>(R.id.tvShoeDescription)
-            shoeName.text = it.name
-            companyName.text = it.company
-            shoeSize.text = it.size.toString()
-            shoeDescriptions.text = it.description
-            linearLayout.addView(view)
+        it.forEach { shoe ->
+            val listItemBinding = DataBindingUtil.inflate<ListItemBinding>(
+                layoutInflater,
+                R.layout.list_item,
+                scrollView,
+                false
+            )
+            listItemBinding.shoe = shoe
+            linearLayout.addView(listItemBinding.root)
         }
     }
 

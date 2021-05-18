@@ -9,12 +9,14 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoedetailsfragmentBinding
 import com.udacity.shoestore.databinding.ShoedetailsfragmentBindingImpl
 import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.util.Constants
 import kotlinx.android.synthetic.main.shoedetailsfragment.*
 
@@ -24,17 +26,26 @@ class ShoeDetails : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val shoe = Shoe(
+            ObservableField(""),
+            ObservableField(""),
+            ObservableField(""),
+            ObservableField("")
+        )
+
         val binding: ShoedetailsfragmentBinding =
             DataBindingUtil.inflate(inflater, R.layout.shoedetailsfragment, container, false)
+
+        binding.shoe = shoe
         binding.buttonCancel.setOnClickListener { view: View ->
             Navigation.findNavController(view)
                 .navigate(R.id.action_shoeDetails_to_shoeListingFragment)
         }
         binding.buttonSave.setOnClickListener { view: View ->
-            val shoeName = etShoeName.text.toString()
-            val companyName = etCompanyName.text.toString()
-            val shoeSize = etShoeSize.text.toString()
-            val shoeDescription = etDescription.text.toString()
+            val shoeName: String = shoe.name.get() ?: ""
+            val companyName: String = shoe.company.get() ?: ""
+            val shoeSize: String = shoe.size.get() ?: ""
+            val shoeDescription: String = shoe.description.get() ?: ""
 
             val bundle = bundleOf(
                 Constants.KEY_SHOE_NAME to shoeName,

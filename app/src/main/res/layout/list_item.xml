@@ -3,10 +3,18 @@
    Using constrain layout to have flat hierarchy to improve
    ui rendering performance
     -->
+
+<layout>
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <ImageView
         android:id="@+id/shoeImage"
@@ -27,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
-        android:text="@string/shoeName"
+        android:text="@{shoe.name}"
         style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shoeImage" />
@@ -37,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:text="@string/companyName"
+        android:text="@{shoe.company}"
         style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShoeName" />
@@ -50,7 +58,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/size"
+        android:text="@{shoe.size}"
         style="@style/TextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shoeImage" />
@@ -61,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:text="@string/minimal_and_light_for_use_anywhere"
+        android:text="@{shoe.description}"
         android:lineSpacingMultiplier="1.2"
         style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,3 +77,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
