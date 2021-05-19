@@ -17,6 +17,7 @@ import com.udacity.shoestore.databinding.ShoelistingfragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.util.Constants
 import com.udacity.shoestore.util.UserManager
+import com.udacity.shoestore.views.login.LogInViewModel
 
 class ShoeListingFragment : Fragment() {
     override fun onCreateView(
@@ -86,6 +87,9 @@ class ShoeListingFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
+                val logInViewModel = ViewModelProvider(requireActivity()).get(LogInViewModel::class.java)
+                logInViewModel.email = ""
+                logInViewModel.password = ""
                 UserManager.logOut(requireContext())
                 Navigation.findNavController(requireView())
                     .navigate(R.id.action_shoeListingFragment_to_logInFragment)
