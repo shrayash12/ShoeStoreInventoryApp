@@ -29,5 +29,6 @@
     <string name="enter_shoe_name">Enter shoe name</string>
     <string name="shoe_name">Shoe name</string>
     <string name="shoe_store">Shoe Store</string>
+    <string name="enter_the_description">Enter the description</string>
 
 </resources>
