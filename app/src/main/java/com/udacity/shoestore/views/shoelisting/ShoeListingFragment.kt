@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListItemBinding
@@ -20,6 +20,9 @@ import com.udacity.shoestore.util.UserManager
 import com.udacity.shoestore.views.login.LogInViewModel
 
 class ShoeListingFragment : Fragment() {
+    private val shoeListViewModel: ShoeListViewModel by activityViewModels()
+    private val logInViewModel: LogInViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +42,7 @@ class ShoeListingFragment : Fragment() {
                 ObservableField(description ?: "")
             )
         }
+
         if (shoe != null) {
             shoeListViewModel.addNewShoes(shoe)
         }
@@ -53,7 +57,6 @@ class ShoeListingFragment : Fragment() {
         return binding.root
     }
 
-    lateinit var shoeListViewModel: ShoeListViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -87,7 +90,6 @@ class ShoeListingFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
-                val logInViewModel = ViewModelProvider(requireActivity()).get(LogInViewModel::class.java)
                 logInViewModel.email = ""
                 logInViewModel.password = ""
                 UserManager.logOut(requireContext())
@@ -101,7 +103,6 @@ class ShoeListingFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
         shoeListViewModel.initialiseData()
     }
 }

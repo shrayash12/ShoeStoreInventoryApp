@@ -14,22 +14,20 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginfragmentBinding
 import com.udacity.shoestore.util.UserManager
 
 class LogInFragment : Fragment() {
-
-    lateinit var logInViewModel: LogInViewModel
+    private val logInViewModel: LogInViewModel by activityViewModels()
     lateinit var binding: LoginfragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        logInViewModel = ViewModelProvider(requireActivity()).get(LogInViewModel::class.java)
 
          binding = LoginfragmentBinding.inflate(layoutInflater, container, false)
             .apply {
@@ -93,6 +91,7 @@ class LogInFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 logInViewModel.email = s.toString()
+
             }
 
         })
